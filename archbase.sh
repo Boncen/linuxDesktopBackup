@@ -45,7 +45,7 @@ if [ -f /usr/share/applications/qq.desktop ]; then
     echo "qq ......ok"
 else
     echo "qq ......installing"
-	yay linuxqq
+	yay linuxqq # if linuxqq cannot input via fcitx5, edit the desktop file, add params '--enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime'
 fi
 
 if command -v virtualbox >/dev/null 2>&1; then
@@ -71,5 +71,19 @@ else
 	sudo pacman -S --noconfirm ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-firacode-nerd
 fi
 
-# if linuxqq cannot input via fcitx5, edit the desktop file, add params '--enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime'
+if command -v node >/dev/null 2>&1; then
+    echo "nodejs ......ok"
+else
+    echo "nodejs ......installing"
+	sudo pacman -S --noconfirm nodejs npm pnpm yarn
+	npm config set registry https://registry.npmmirror.com
+fi
+
+if command -v docker >/dev/null 2>&1; then
+    echo "docker ......ok"
+else
+    echo "docker ......installing"
+	sudo pacman -S --noconfirm docker
+fi
+
 
