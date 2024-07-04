@@ -86,4 +86,26 @@ else
 	sudo pacman -S --noconfirm docker
 fi
 
+if command -v scrcpy >/dev/null 2>&1; then
+    echo "scrcpy ......ok"
+else
+    echo "scrcpy ......installing"
+	sudo pacman -S --noconfirm scrcpy
+fi
+
+if command -v dotnet-sdk >/dev/null 2>&1; then
+    echo "dotnet-sdk ......ok"
+else
+    echo "dotnet-sdk ......installing"
+	sudo pacman -S --noconfirm dotnet-sdk
+	echo 'export PATH="$PATH:/home/boncen/.dotnet/tools"' >> /home/boncen/.bashrc
+	source /home/boncen/.bashrc
+fi
+
+if command -v chromium >/dev/null 2>&1; then
+    echo "chromium ......ok"
+else
+    echo "chromium ......installing"
+	sudo pacman -S --noconfirm chromium
+fi
 
