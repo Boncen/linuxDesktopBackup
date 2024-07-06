@@ -53,6 +53,7 @@ if command -v virtualbox >/dev/null 2>&1; then
 else
     echo "virtualbox ......installing"
 	sudo pacman -S --noconfirm virtualbox virtualbox-host-modules-arch virtualbox-guest-iso
+	sudo usermod -a -G vboxusers boncen
 fi
 
 font_installed=$(fc-list | grep -q "cjk" && echo "yes" || echo "no")

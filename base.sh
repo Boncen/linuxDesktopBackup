@@ -6,9 +6,15 @@ userEmail="boncen@outlook.com" # your email
 debianInitial() {
 	echo "debian initial func"
 	# source.list
-	
+	echo '' > /etc/apt/sources.list
+	echo 'deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware' >> /etc/apt/sources.list
+	echo 'deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware' >> /etc/apt/sources.list
+	echo 'deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware' >> /etc/apt/sources.list
+	echo 'deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware' >> /etc/apt/sources.list
+
 	# sudoer
 	echo "$userName ALL=(ALL:ALL) ALL" > /etc/sudoers.d/boncen  # boncen
+	sudo apt update && sudo apt upgrade
 }
 
 if [ -f /etc/os-release ]; then
@@ -136,3 +142,24 @@ else
 fi
 	
 
+if command -v dotnet >/dev/null 2>&1; then
+    echo "dotnet ......ok"
+else
+    echo "dotnet ......installing"
+	cd /home/boncen
+	wget https://download.visualstudio.microsoft.com/download/pr/dd6ee0c0-6287-4fca-85d0-1023fc52444b/874148c23613c594fc8f711fc0330298/dotnet-sdk-8.0.302-linux-x64.tar.gz
+	mkdir -p /home/boncen/dotnet && tar zxf dotnet-sdk-8.0.302-linux-x64.tar.gz -C /home/boncen/dotnet
+	echo 'export DOTNET_ROOT=$HOME/dotnet' >>  /home/boncen/.bashrc
+	echo 'export PATH=$PATH:$HOME/dotnet' >>  /home/boncen/.bashrc
+fi
+
+if command -v virtualbox >/dev/null 2>&1; then
+    echo "virtualbox ......ok"
+else
+    echo "virtualbox ......installing"
+    cd /home/boncen
+    wget https://download.virtualbox.org/virtualbox/7.0.18/VirtualBox-7.0.18-162988-Linux_amd64.run
+    chmod +x VirtualBox-7.0.18-162988-Linux_amd64.run
+    bash VirtualBox-7.0.18-162988-Linux_amd64.run
+    sudo usermod -a -G vboxusers boncen
+fi
