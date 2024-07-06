@@ -163,3 +163,13 @@ else
     bash VirtualBox-7.0.18-162988-Linux_amd64.run
     sudo usermod -a -G vboxusers boncen
 fi
+
+if command -v flatpak >/dev/null 2>&1; then
+    echo "flatpak ......ok"
+else
+    echo "flatpak ......installing"
+    eval "$installer flatpak"
+    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
+fi
+

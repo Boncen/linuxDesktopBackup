@@ -1,0 +1,1 @@
+sudo apt install -y fonts-firacode git-cola 
