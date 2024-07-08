@@ -94,24 +94,24 @@ fi
 cd /home/boncen
 
 # QQ
-if [ -f /usr/share/applications/qqq.desktop ]; then
+if [ -f /usr/share/applications/QQ.desktop ]; then
 	echo "qq ......ok"
 else
 	if [ -d /home/boncen/softs/qq ]; then
 		cd /home/boncen/softs/qq
 
-		touch ./qqq.desktop
-		echo '[Desktop Entry]' >> ./qqq.desktop
-		echo 'Comment=qq' >> ./qqq.desktop
-		echo "Exec=`pwd`/app.AppImage" >> ./qqq.desktop
-		echo "Icon=`pwd`/icon.png" >> ./qqq.desktop
-		echo 'Name=qq' >> ./qqq.desktop
-		echo 'StartupNotify=true' >> ./qqq.desktop
-		echo 'Terminal=false' >> ./qqq.desktop
-		echo 'Type=Application' >> ./qqq.desktop
+		touch ./QQ.desktop
+		echo '[Desktop Entry]' >> ./QQ.desktop
+		echo 'Comment=qq' >> ./QQ.desktop
+		echo "Exec=`pwd`/app.AppImage" >> ./QQ.desktop
+		echo "Icon=`pwd`/QQ.png" >> ./QQ.desktop
+		echo 'Name=qq' >> ./QQ.desktop
+		echo 'StartupNotify=true' >> ./QQ.desktop
+		echo 'Terminal=false' >> ./QQ.desktop
+		echo 'Type=Application' >> ./QQ.desktop
 
-		sudo cp ./qqq.desktop /usr/share/applications/qqq.desktop
-		rm ./qqq.desktop
+		sudo cp ./QQ.desktop /usr/share/applications/QQ.desktop
+		rm ./QQ.desktop
 	else
 		echo "cannot find directory /home/boncen/softs/qq, qq skip."
 	fi
