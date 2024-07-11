@@ -173,3 +173,20 @@ else
     flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
 fi
 
+
+if command -v node >/dev/null 2>&1; then
+    echo "node ......ok"
+else
+    echo "node ......installing"
+    cd /home/boncen
+    mkdir nodejs
+    cd nodejs
+
+    wget https://nodejs.org/dist/v20.15.1/node-v20.15.1-linux-x64.tar.xz
+    tar -xvf node-v20.15.1-linux-x64.tar.xz
+    mv ./node-v20.15.1-linux-x64 ./node
+    echo 'export PATH=$PATH:$HOME/nodejs/node/bin' >> /home/boncen/.bashrc
+    source /home/boncen/.bashrc
+    rm node-v20.15.1-linux-x64.tar.xz
+fi
+ 
