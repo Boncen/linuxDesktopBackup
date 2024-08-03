@@ -20,7 +20,7 @@ debianInitial() {
 if [ -f /etc/os-release ]; then
 	. /etc/os-release
 	case "$ID" in
-		ubuntu|debian)
+		ubuntu|debian|linuxmint)
 			installer="sudo apt install -y "
 			debianInitial
 			;;
@@ -190,3 +190,5 @@ else
     rm node-v20.15.1-linux-x64.tar.xz
 fi
  
+echo 'alias ll="ls -lh"' >> ~/.bashrc
+echo 'alias la="ls -ah"' >> ~/.bashrc
