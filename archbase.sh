@@ -110,3 +110,6 @@ else
 	sudo pacman -S --noconfirm chromium
 fi
 
+# image viewer
+sudo pacman -S sxiv
+
