@@ -35,7 +35,7 @@ if command -v fcitx5 >/dev/null 2>&1; then
     echo "fcitx5 ......ok"
 else
     echo "fcitx5 ......installing"
-	sudo pacman -S --noconfirm fcitx5 fcitx5-chinese-addons fcitx5-material-color
+	sudo pacman -S --noconfirm fcitx5 fcitx5-chinese-addons fcitx5-material-color fcitx5-configtool
 	echo "GTK_IM_MODULE=fcitx" >> /etc/envirment
 	echo "QT_IM_MODULE=fcitx" >> /etc/envirment
 	echo "XMODIFIERS=@im=fcitx" >> /etc/envirment

@@ -141,28 +141,28 @@ else
 	fi
 fi
 	
+#
+# if command -v dotnet >/dev/null 2>&1; then
+#     echo "dotnet ......ok"
+# else
+#     echo "dotnet ......installing"
+# 	cd /home/boncen
+# 	wget https://download.visualstudio.microsoft.com/download/pr/dd6ee0c0-6287-4fca-85d0-1023fc52444b/874148c23613c594fc8f711fc0330298/dotnet-sdk-8.0.302-linux-x64.tar.gz
+# 	mkdir -p /home/boncen/dotnet && tar zxf dotnet-sdk-8.0.302-linux-x64.tar.gz -C /home/boncen/dotnet
+# 	echo 'export DOTNET_ROOT=$HOME/dotnet' >>  /home/boncen/.bashrc
+# 	echo 'export PATH=$PATH:$HOME/dotnet' >>  /home/boncen/.bashrc
+# fi
 
-if command -v dotnet >/dev/null 2>&1; then
-    echo "dotnet ......ok"
-else
-    echo "dotnet ......installing"
-	cd /home/boncen
-	wget https://download.visualstudio.microsoft.com/download/pr/dd6ee0c0-6287-4fca-85d0-1023fc52444b/874148c23613c594fc8f711fc0330298/dotnet-sdk-8.0.302-linux-x64.tar.gz
-	mkdir -p /home/boncen/dotnet && tar zxf dotnet-sdk-8.0.302-linux-x64.tar.gz -C /home/boncen/dotnet
-	echo 'export DOTNET_ROOT=$HOME/dotnet' >>  /home/boncen/.bashrc
-	echo 'export PATH=$PATH:$HOME/dotnet' >>  /home/boncen/.bashrc
-fi
-
-if command -v virtualbox >/dev/null 2>&1; then
-    echo "virtualbox ......ok"
-else
-    echo "virtualbox ......installing"
-    cd /home/boncen
-    wget https://download.virtualbox.org/virtualbox/7.0.18/VirtualBox-7.0.18-162988-Linux_amd64.run
-    chmod +x VirtualBox-7.0.18-162988-Linux_amd64.run
-    bash VirtualBox-7.0.18-162988-Linux_amd64.run
-    sudo usermod -a -G vboxusers boncen
-fi
+# if command -v virtualbox >/dev/null 2>&1; then
+#     echo "virtualbox ......ok"
+# else
+#     echo "virtualbox ......installing"
+#     cd /home/boncen
+#     wget https://download.virtualbox.org/virtualbox/7.0.18/VirtualBox-7.0.18-162988-Linux_amd64.run
+#     chmod +x VirtualBox-7.0.18-162988-Linux_amd64.run
+#     bash VirtualBox-7.0.18-162988-Linux_amd64.run
+#     sudo usermod -a -G vboxusers boncen
+# fi
 
 if command -v flatpak >/dev/null 2>&1; then
     echo "flatpak ......ok"
@@ -174,21 +174,21 @@ else
 fi
 
 
-if command -v node >/dev/null 2>&1; then
-    echo "node ......ok"
-else
-    echo "node ......installing"
-    cd /home/boncen
-    mkdir nodejs
-    cd nodejs
-
-    wget https://nodejs.org/dist/v20.15.1/node-v20.15.1-linux-x64.tar.xz
-    tar -xvf node-v20.15.1-linux-x64.tar.xz
-    mv ./node-v20.15.1-linux-x64 ./node
-    echo 'export PATH=$PATH:$HOME/nodejs/node/bin' >> /home/boncen/.bashrc
-    source /home/boncen/.bashrc
-    rm node-v20.15.1-linux-x64.tar.xz
-fi
+# if command -v node >/dev/null 2>&1; then
+#     echo "node ......ok"
+# else
+#     echo "node ......installing"
+#     cd /home/boncen
+#     mkdir nodejs
+#     cd nodejs
+#
+#     wget https://nodejs.org/dist/v20.15.1/node-v20.15.1-linux-x64.tar.xz
+#     tar -xvf node-v20.15.1-linux-x64.tar.xz
+#     mv ./node-v20.15.1-linux-x64 ./node
+#     echo 'export PATH=$PATH:$HOME/nodejs/node/bin' >> /home/boncen/.bashrc
+#     source /home/boncen/.bashrc
+#     rm node-v20.15.1-linux-x64.tar.xz
+# fi
  
 echo 'alias ll="ls -lh"' >> ~/.bashrc
 echo 'alias la="ls -ah"' >> ~/.bashrc
