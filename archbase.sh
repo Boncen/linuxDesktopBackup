@@ -35,10 +35,11 @@ if command -v fcitx5 >/dev/null 2>&1; then
     echo "fcitx5 ......ok"
 else
     echo "fcitx5 ......installing"
-	sudo pacman -S --noconfirm fcitx5 fcitx5-chinese-addons fcitx5-material-color fcitx5-configtool
-	echo "GTK_IM_MODULE=fcitx" >> /etc/envirment
-	echo "QT_IM_MODULE=fcitx" >> /etc/envirment
-	echo "XMODIFIERS=@im=fcitx" >> /etc/envirment
+	sudo pacman -S --noconfirm fcitx5 fcitx5-qt fcitx5-gtk  fcitx5-chinese-addons fcitx5-material-color fcitx5-configtool
+#	echo "GTK_IM_MODULE=fcitx" >> /etc/environment
+
+#	echo "QT_IM_MODULE=fcitx" >> /etc/environment
+#	echo "XMODIFIERS=@im=fcitx" >> /etc/environment
 fi
 
 if [ -f /usr/share/applications/qq.desktop ]; then
@@ -111,5 +112,8 @@ else
 fi
 
 # image viewer
-sudo pacman -S sxiv
+sudo pacman -S --noconfirm sxiv
+# emoji
+sudo pacman -S --noconfirm noto-fonts-emoji
 
+sudo pacman -S --noconfirm ark unzip unrar
